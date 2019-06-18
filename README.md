@@ -17,9 +17,17 @@ I want to be able to see a list of my saved bookmarks
 ![domain model picture coming soon]( )
 
 
-# Using the Database
+## Set up
+
+### Using the Database
 
 1. Connect to psql (`psql` in the command line)
-0. Create the database using `CREATE DATABASE bookmark_manager;`
-0. Connect to the database using `\c bookmark_manager`
-0. Run the query saved in the file "01_create_bookmarks_table.sql"
+2. Create the database using
+```
+# CREATE DATABASE bookmark_manager;
+```
+3. Connect to the database using
+```
+# \c bookmark_manager
+```
+4. Run the SQL scripts in `db/migrations` folder in the given order "01_create_bookmarks_table.sql"
