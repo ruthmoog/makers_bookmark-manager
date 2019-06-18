@@ -4,16 +4,19 @@ require 'bookmarks'
 
 describe Bookmarks do
   describe '.all' do
-    bookmarks = Bookmarks.all
-
-    it 'has a list of bookmarks' do
-      expect(bookmarks).to be_an_instance_of(Array)
-    end
 
     it 'prints a list of bookmarks' do
-      expect(bookmarks).to include('www.google.com')
-      expect(bookmarks).to include('www.pomodoro.com')
-      expect(bookmarks).to include('www.tomato-timer.com')
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+
+      connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.pomodoro.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.tomato-timer.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+
+      bookmarks = Bookmarks.all
+
+      expect(bookmarks).to include('http://www.google.com')
+      expect(bookmarks).to include('http://www.pomodoro.com')
+      expect(bookmarks).to include('http://www.tomato-timer.com')
     end
   end
 end

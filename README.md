@@ -30,4 +30,4 @@ I want to be able to see a list of my saved bookmarks
 ```
 # \c bookmark_manager
 ```
-4. Run the SQL scripts in `db/migrations` folder in the given order "01_create_bookmarks_table.sql"
+4. Run the SQL scripts in `db/migrations` folder in the given order
