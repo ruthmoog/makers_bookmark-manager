@@ -1,7 +1,10 @@
-class Bookmarks
+# frozen_string_literal: true
+require 'pg'
 
+class Bookmarks
   def self.all
-    ['www.pomodoro.com', 'www.google.com', 'www.tomato-timer.com']
+    connection = PG.connect(dbname: 'bookmark_manager')
+    result = connection.exec("SELECT * FROM bookmarks;")
+    result.map { |bookmark| bookmark['url']  }
   end
-  
 end

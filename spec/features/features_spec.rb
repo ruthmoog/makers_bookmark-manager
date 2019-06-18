@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Viewing bookmarks' do
   scenario 'Visit bookmarks page and be presented with a list of bookmarks' do
     visit '/bookmarks'
